@@ -9,9 +9,11 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [AndroidInjectionModule::class, CocktailsModule::class])
-interface AppComponent : AndroidInjector<App> {
+abstract class AppComponent : AndroidInjector<App> {
 
     @Component.Builder
     interface Builder {

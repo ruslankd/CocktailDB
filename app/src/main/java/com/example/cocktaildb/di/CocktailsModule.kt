@@ -1,12 +1,31 @@
 package com.example.cocktaildb.di
 
 import com.example.cocktaildb.MainActivity
+import com.example.cocktaildb.data.cocktail.datasource.CocktailDataSource
+import com.example.cocktaildb.data.cocktail.datasource.CocktailDataSourceImpl
+import com.example.cocktaildb.data.repository.CocktailsRepository
+import com.example.cocktaildb.data.repository.CocktailsRepositoryImpl
+import com.example.cocktaildb.presentation.cocktails.CocktailsFragment
+import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module
+@Module(includes = [NetworkModule::class])
 interface CocktailsModule {
 
     @ContributesAndroidInjector
     fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector
+    fun bindCocktailsFragment(): CocktailsFragment
+
+    @Binds
+    fun bindCocktailRepository(
+        cocktailsRepository: CocktailsRepositoryImpl
+    ): CocktailsRepository
+
+    @Binds
+    fun bindCocktailDataSource(
+        cocktailDataSource: CocktailDataSourceImpl
+    ): CocktailDataSource
 }

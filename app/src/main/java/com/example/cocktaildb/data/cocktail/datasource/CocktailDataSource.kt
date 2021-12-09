@@ -1,9 +1,8 @@
-package com.example.cocktaildb.data.repository
+package com.example.cocktaildb.data.cocktail.datasource
 
 import com.example.cocktaildb.data.cocktail.Cocktail
 import io.reactivex.rxjava3.core.Single
 
-interface CocktailsRepository {
-
+interface CocktailDataSource {
     fun getCocktails(): Single<List<Cocktail>>
 }

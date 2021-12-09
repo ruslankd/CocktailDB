@@ -1,6 +1,7 @@
 package com.example.cocktaildb.presentation.android_injector
 
 import android.content.Context
+import androidx.annotation.LayoutRes
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -8,7 +9,7 @@ import dagger.android.support.AndroidSupportInjection
 import moxy.MvpAppCompatFragment
 import javax.inject.Inject
 
-abstract class AndroidInjectorFragment : MvpAppCompatFragment(), HasAndroidInjector {
+abstract class AndroidInjectorFragment(@LayoutRes contentLayoutId: Int) : MvpAppCompatFragment(contentLayoutId), HasAndroidInjector {
 
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
