@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -14,6 +15,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -32,6 +37,39 @@ android {
 }
 
 dependencies {
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.5.3'
+    // Dagger
+    kapt "com.google.dagger:dagger-compiler:2.38.1"
+    kapt "com.google.dagger:dagger-android-processor:2.38.1"
+    implementation "com.google.dagger:dagger:2.38.1"
+    implementation "com.google.dagger:dagger-android:2.38.1"
+    implementation "com.google.dagger:dagger-android-support:2.38.1"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+    implementation "com.github.bumptech.glide:okhttp3-integration:4.12.0@aar"
+
+    // Retrofit
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+    // RxJava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+
+    // Cicerone
+    implementation 'com.github.terrakok:cicerone:7.1'
+
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    // Moxy
+    implementation "com.github.moxy-community:moxy:2.2.2"
+    implementation "com.github.moxy-community:moxy-ktx:2.2.2"
+    implementation "com.github.moxy-community:moxy-androidx:2.2.2"
+    kapt "com.github.moxy-community:moxy-compiler:2.2.2"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
