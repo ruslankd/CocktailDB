@@ -15,7 +15,7 @@ class NetworkModule {
     @Provides
     fun provideCocktailApi(): CocktailApi =
         Retrofit.Builder()
-            .baseUrl("https://thecocktaildb.com/api/json/v1/1")
+            .baseUrl("https://thecocktaildb.com/api/json/v1/1/")
             .client(
                 OkHttpClient.Builder()
                     .addNetworkInterceptor(

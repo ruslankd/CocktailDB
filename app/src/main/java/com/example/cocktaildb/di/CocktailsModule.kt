@@ -6,6 +6,7 @@ import com.example.cocktaildb.data.cocktail.datasource.CocktailDataSourceImpl
 import com.example.cocktaildb.data.repository.CocktailsRepository
 import com.example.cocktaildb.data.repository.CocktailsRepositoryImpl
 import com.example.cocktaildb.presentation.cocktails.CocktailsFragment
+import com.example.cocktaildb.presentation.datail.DetailFragment
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -18,6 +19,9 @@ interface CocktailsModule {
 
     @ContributesAndroidInjector
     fun bindCocktailsFragment(): CocktailsFragment
+
+    @ContributesAndroidInjector
+    fun bindDetailFragment(): DetailFragment
 
     @Binds
     fun bindCocktailRepository(

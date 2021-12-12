@@ -1,7 +1,9 @@
 package com.example.cocktaildb.presentation.cocktails
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.cocktaildb.R
 import com.example.cocktaildb.databinding.FragmentCocktailsBinding
@@ -37,7 +39,12 @@ class CocktailsFragment : AndroidInjectorFragment(R.layout.fragment_cocktails), 
         cocktailAdapter.submitList(cocktails)
     }
 
-    override fun onCocktailPicked(cocktail: CocktailViewModel) {
+    override fun showError(error: Throwable) {
+        Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
+        Log.e("myLog", error.message ?: "")
+    }
 
+    override fun onCocktailPicked(cocktail: CocktailViewModel) {
+        presenter.displayCocktail(cocktail)
     }
 }
