@@ -16,9 +16,13 @@ class DetailPresenter
 
     override fun onFirstViewAttach() {
         cocktailsRepository.getCocktailById(cocktailId)
-            .map { cocktails -> cocktails.drinks.map(CocktailViewModel.Mapper::map) }
+            .map { cocktail -> CocktailViewModel.Mapper.map(cocktail)}
             .observeOn(schedulers.main())
             .subscribeOn(schedulers.background())
-            .subscribe({ cocktails -> viewState.showCocktail(cocktails) }, viewState::showError)
+            .subscribe(
+                { cocktail ->
+                    viewState.showCocktail(cocktail)
+                }, viewState::showError
+            )
     }
 }

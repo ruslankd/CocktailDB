@@ -1,7 +1,6 @@
 package com.example.cocktaildb.data.cocktail.datasource
 
-import com.example.cocktaildb.data.CocktailApi
-import com.example.cocktaildb.data.cocktail.Cocktail
+import com.example.cocktaildb.data.newtwork.CocktailApi
 import com.example.cocktaildb.data.cocktail.Drinks
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject

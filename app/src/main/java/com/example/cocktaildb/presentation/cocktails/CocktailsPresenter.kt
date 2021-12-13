@@ -22,7 +22,7 @@ class CocktailsPresenter
         disposable =
         cocktailsRepository.getCocktails()
             .observeOn(schedulers.background())
-            .map { cocktails -> cocktails.drinks.map(CocktailViewModel.Mapper::map) }
+            .map { cocktails -> cocktails.map(CocktailViewModel.Mapper::map) }
             .observeOn(schedulers.main())
             .subscribeOn(schedulers.background())
             .subscribe(

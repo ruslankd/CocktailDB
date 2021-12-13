@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
@@ -42,12 +43,12 @@ class DetailFragment() : AndroidInjectorFragment(R.layout.fragment_detail), Deta
 
     private val viewBinding: FragmentDetailBinding by viewBinding()
 
-    override fun showCocktail(cocktails: List<CocktailViewModel>) {
-        val cocktail = cocktails.first()
+    override fun showCocktail(cocktail: CocktailViewModel) {
         with(viewBinding) {
             cocktailName.text = cocktail.name
             Glide.with(requireContext())
                 .load(cocktail.url)
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,

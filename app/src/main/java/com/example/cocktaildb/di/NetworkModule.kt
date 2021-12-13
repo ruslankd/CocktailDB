@@ -1,6 +1,6 @@
 package com.example.cocktaildb.di
 
-import com.example.cocktaildb.data.CocktailApi
+import com.example.cocktaildb.data.newtwork.CocktailApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

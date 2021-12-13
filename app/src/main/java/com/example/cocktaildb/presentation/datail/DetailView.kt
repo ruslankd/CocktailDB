@@ -7,6 +7,6 @@ import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface DetailView : MvpView {
-    fun showCocktail(cocktails: List<CocktailViewModel>)
+    fun showCocktail(cocktail: CocktailViewModel)
     fun showError(error: Throwable)
 }

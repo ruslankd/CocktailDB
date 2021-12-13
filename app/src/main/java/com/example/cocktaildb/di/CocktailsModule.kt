@@ -1,6 +1,8 @@
 package com.example.cocktaildb.di
 
 import com.example.cocktaildb.MainActivity
+import com.example.cocktaildb.data.cocktail.datasource.CocktailCacheDataSource
+import com.example.cocktaildb.data.cocktail.datasource.CocktailCacheDataSourceImpl
 import com.example.cocktaildb.data.cocktail.datasource.CocktailDataSource
 import com.example.cocktaildb.data.cocktail.datasource.CocktailDataSourceImpl
 import com.example.cocktaildb.data.repository.CocktailsRepository
@@ -11,7 +13,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module(includes = [NetworkModule::class])
+@Module(includes = [NetworkModule::class, StorageModule::class])
 interface CocktailsModule {
 
     @ContributesAndroidInjector
@@ -32,4 +34,10 @@ interface CocktailsModule {
     fun bindCocktailDataSource(
         cocktailDataSource: CocktailDataSourceImpl
     ): CocktailDataSource
+
+    @Binds
+    fun bindCocktailCacheDataSource(
+        cocktailCacheDataSource: CocktailCacheDataSourceImpl
+    ): CocktailCacheDataSource
+
 }

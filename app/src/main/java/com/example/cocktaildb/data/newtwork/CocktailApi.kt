@@ -1,4 +1,4 @@
-package com.example.cocktaildb.data
+package com.example.cocktaildb.data.newtwork
 
 import com.example.cocktaildb.data.cocktail.Drinks
 import io.reactivex.rxjava3.core.Single
