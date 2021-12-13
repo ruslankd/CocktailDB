@@ -1,5 +1,6 @@
 package com.example.cocktaildb
 
+import com.example.cocktaildb.di.DaggerAppComponent
 import com.example.cocktaildb.presentation.navigation.CustomRouter
 import com.example.cocktaildb.scheduler.SchedulersFactory
 import com.github.terrakok.cicerone.Cicerone

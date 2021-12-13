@@ -9,6 +9,10 @@ class CocktailViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val viewBinding: ItemCocktailBinding by viewBinding()
 
     fun bind(cocktailModel: CocktailViewModel, delegate: CocktailsAdapter.Delegate?) {
+        with(viewBinding) {
+            tvCocktailName.text = cocktailModel.name
 
+            root.setOnClickListener { delegate?.onCocktailPicked(cocktailModel) }
+        }
     }
 }

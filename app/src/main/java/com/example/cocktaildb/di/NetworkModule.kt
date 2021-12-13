@@ -1,6 +1,6 @@
 package com.example.cocktaildb.di
 
-import com.example.cocktaildb.data.CocktailApi
+import com.example.cocktaildb.data.newtwork.CocktailApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -15,7 +15,7 @@ class NetworkModule {
     @Provides
     fun provideCocktailApi(): CocktailApi =
         Retrofit.Builder()
-            .baseUrl("https://thecocktaildb.com/api/json/v1/1")
+            .baseUrl("https://thecocktaildb.com/api/json/v1/1/")
             .client(
                 OkHttpClient.Builder()
                     .addNetworkInterceptor(
